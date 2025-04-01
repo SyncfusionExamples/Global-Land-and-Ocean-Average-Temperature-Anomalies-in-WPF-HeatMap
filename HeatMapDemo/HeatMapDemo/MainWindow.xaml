@@ -1,0 +1,110 @@
+﻿<Window x:Class="HeatMapDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:HeatMapDemo"
+        mc:Ignorable="d" 
+        Title="MainWindow">
+
+
+    <Window.DataContext>
+        <local:TemperatureViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <syncfusion:TableMapping x:Key="Model">
+            <syncfusion:TableMapping.HeaderMapping>
+                <syncfusion:ColumnMapping DisplayName="Year" PropertyName="Year" />
+            </syncfusion:TableMapping.HeaderMapping>
+            <syncfusion:TableMapping.ColumnMapping>
+                <syncfusion:ColumnMapping DisplayName="January" PropertyName="Jan" />
+                <syncfusion:ColumnMapping DisplayName="February" PropertyName="Feb" />
+                <syncfusion:ColumnMapping DisplayName="March" PropertyName="Mar" />
+                <syncfusion:ColumnMapping DisplayName="April" PropertyName="April" />
+                <syncfusion:ColumnMapping DisplayName="May" PropertyName="May" />
+                <syncfusion:ColumnMapping DisplayName="June" PropertyName="June" />
+                <syncfusion:ColumnMapping DisplayName="July" PropertyName="July" />
+                <syncfusion:ColumnMapping DisplayName="August" PropertyName="Aug" />
+                <syncfusion:ColumnMapping DisplayName="September" PropertyName="Sep" />
+                <syncfusion:ColumnMapping DisplayName="October" PropertyName="Oct" />
+                <syncfusion:ColumnMapping DisplayName="November" PropertyName="Nov" />
+                <syncfusion:ColumnMapping DisplayName="December" PropertyName="Dec" />
+            </syncfusion:TableMapping.ColumnMapping>
+        </syncfusion:TableMapping>
+
+        <syncfusion:ColorMappingCollection x:Key="colorMapping">
+            <syncfusion:ColorMapping Value="0.0" Color="#313695"/>
+            <syncfusion:ColorMapping Value="0.3" Color="#4575b4"/>
+            <syncfusion:ColorMapping Value="0.5" Color="#91bfdb"/>
+            <syncfusion:ColorMapping Value="0.7" Color="#e0f3f8"/>
+            <syncfusion:ColorMapping Value="1.0" Color="#fee090"/>
+            <syncfusion:ColorMapping Value="1.3" Color="#fdae61"/>
+            <syncfusion:ColorMapping Value="1.5" Color="#d73027"/>
+        </syncfusion:ColorMappingCollection>
+
+        <ToolTip x:Key="celltip" Background="Black" Content="{Binding}" FontSize="10" Foreground="White">
+            <ToolTip.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding RowHeader.Value}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   FontSize="12"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ColumnHeader.Value}" FontSize="12"/>
+                            <TextBlock Text=" : " FontSize="12"/>
+                            <TextBlock Text="{Binding Value, StringFormat='{}{0} °C'}" FontSize="12"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ToolTip.ContentTemplate>
+        </ToolTip>
+
+        <Style TargetType="syncfusion:HeatMapCell">
+            <Setter Property="ToolTip" Value="{StaticResource celltip}" />
+        </Style>
+    </Window.Resources>
+
+    <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="8"
+            Background="WhiteSmoke" 
+            Margin="20">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title and Description -->
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock Text="Global Land and Ocean Average Temperature Anomalies" 
+                           HorizontalAlignment="Center"
+                           FontSize="18" 
+                           FontWeight="Bold"
+                           Foreground="Black"/>
+
+                <TextBlock Text="Analysis global temperature fluctuations from 2004 to 2024, highlighting variations in degrees Celsius, It provides insights into long-term climate trends and the impact of global warming."
+                           HorizontalAlignment="Center"
+                           FontSize="14" 
+                           Foreground="DimGray"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           Margin="225,5,255,0"/>
+            </StackPanel>
+
+            <!-- Heatmap (Filling Full Width) -->
+            <syncfusion:SfHeatMap Grid.Row="1" ItemsSource="{Binding TemperatureData}"
+                                  ItemsMapping="{StaticResource Model}"
+                                  Margin="10"
+                                  HorizontalContentAlignment="Center"
+                                  ColorMappingCollection="{StaticResource colorMapping}" />
+
+            <!-- Heatmap Legend -->
+            <syncfusion:SfHeatMapLegend Grid.Row="2" LegendMode="Gradient"
+                                        ColorMappingCollection="{StaticResource colorMapping}"
+                                        HorizontalAlignment="Center"
+                                        Width="800"/>
+        </Grid>
+    </Border>
+</Window>
