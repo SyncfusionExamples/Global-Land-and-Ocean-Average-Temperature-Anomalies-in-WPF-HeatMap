@@ -8,15 +8,16 @@ A [Heat Map](https://help.syncfusion.com/wpf/heatmap/getting-started) is a graph
 - Representing relationships between variables in a structured grid format.
  
 ## Binding Data to the Heat Map
-The TemperatureViewModel is set as the DataContext, and the temperature data is bind to the heat map using the ItemsSource property. The mapping of each month's temperature is defined in the TableMapping resource, linking the Year and each month's data (e.g., January, February, etc.). The ItemsMapping are used to bind the model to Heat Map.
+The `TemperatureData` is bind to the heat map using the [ItemsSource](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.HeatMap.SfHeatMap.html#Syncfusion_UI_Xaml_HeatMap_SfHeatMap_ItemsSource) property. The mapping of each month's temperature is defined in the [TableMapping](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.HeatMap.TableMapping.html) resource, linking the Year and each month's data (e.g., January, February, etc.). The [ItemsMapping](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.HeatMap.SfHeatMap.html#Syncfusion_UI_Xaml_HeatMap_SfHeatMap_ItemsMapping) are used to bind the model to Heat Map.
 
 ## Customizing Heat Map Appearance
 we'll focus on customizing the appearance of the heat map based on the cell values to enhance the visualization.
 ## Color Mapping:
-To improve the visual representation of data, we can map specific temperature values to a range of colors. Syncfusion’s WPF Heat Map offers a ColorMappingCollection that allows you to assign different colors to specific data values. We define a collection of color mappings where each value corresponds to a particular color. The values will then be reflected in the heat map cells, making it easier to understand temperature anomalies.
-Here’s an example of a ColorMappingCollection that defines colors based on temperature values, where lower values are represented with cooler colors and higher values with warmer colors:
+To improve the visual representation of data, we can map specific temperature values to a range of colors. Syncfusion’s WPF Heat Map offers a [ColorMappingCollection](https://help.syncfusion.com/cr/wpf/Syncfusion.UI.Xaml.HeatMap.ColorMappingCollection.html) that allows you to assign different colors to specific data values. We define a collection of color mappings where each value corresponds to a particular color. The values will then be reflected in the heat map cells, making it easier to understand temperature anomalies.
+
 
 ## Output
+<img width="737" alt="HeatMap" src="https://github.com/user-attachments/assets/8e1d7d40-5c2d-4766-ad95-e08aca836b9b" />
 
 
 ## Troubleshooting
