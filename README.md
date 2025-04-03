@@ -17,8 +17,7 @@ To improve the visual representation of data, we can map specific temperature va
 
 
 ## Output
-<img width="737" alt="HeatMap" src="https://github.com/user-attachments/assets/8e1d7d40-5c2d-4766-ad95-e08aca836b9b" />
-
+<img width="830" alt="HeatMap" src="https://github.com/user-attachments/assets/c00a7c2a-3d77-4b87-a595-a0a384ccce1b" />
 
 ## Troubleshooting
 ### Path Too Long Exception
