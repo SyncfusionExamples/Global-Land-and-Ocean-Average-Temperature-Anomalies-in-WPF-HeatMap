@@ -5,9 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:local="clr-namespace:HeatMapDemo"
-        mc:Ignorable="d" 
+        mc:Ignorable="d"
         Title="MainWindow">
-
 
     <Window.DataContext>
         <local:TemperatureViewModel/>
@@ -49,7 +48,7 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding RowHeader.Value}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                   FontSize="12"/>
+                                FontSize="12"/>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding ColumnHeader.Value}" FontSize="12"/>
                             <TextBlock Text=" : " FontSize="12"/>
@@ -66,8 +65,8 @@
     </Window.Resources>
 
     <Border BorderBrush="Gray" BorderThickness="2" CornerRadius="8"
-            Background="WhiteSmoke" 
-            Margin="20">
+         Background="WhiteSmoke" 
+         Margin="20">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -79,32 +78,32 @@
             <!-- Title and Description -->
             <StackPanel Orientation="Vertical" Margin="10">
                 <TextBlock Text="Global Land and Ocean Average Temperature Anomalies" 
-                           HorizontalAlignment="Center"
-                           FontSize="18" 
-                           FontWeight="Bold"
-                           Foreground="Black"/>
+                        HorizontalAlignment="Center"
+                        FontSize="18" 
+                        FontWeight="Bold"
+                        Foreground="Black"/>
 
                 <TextBlock Text="Analysis global temperature fluctuations from 2004 to 2024, highlighting variations in degrees Celsius, It provides insights into long-term climate trends and the impact of global warming."
-                           HorizontalAlignment="Center"
-                           FontSize="14" 
-                           Foreground="DimGray"
-                           TextWrapping="Wrap"
-                           TextAlignment="Center"
-                           Margin="225,5,255,0"/>
+                        HorizontalAlignment="Center"
+                        FontSize="14" 
+                        Foreground="DimGray"
+                        TextWrapping="Wrap"
+                        TextAlignment="Center"
+                        Margin="225,5,255,0"/>
             </StackPanel>
 
-            <!-- Heatmap (Filling Full Width) -->
+            <!-- Heatmap -->
             <syncfusion:SfHeatMap Grid.Row="1" ItemsSource="{Binding TemperatureData}"
-                                  ItemsMapping="{StaticResource Model}"
-                                  Margin="10"
-                                  HorizontalContentAlignment="Center"
-                                  ColorMappingCollection="{StaticResource colorMapping}" />
+                               ItemsMapping="{StaticResource Model}"
+                               VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               ColorMappingCollection="{StaticResource colorMapping}" />
 
             <!-- Heatmap Legend -->
             <syncfusion:SfHeatMapLegend Grid.Row="2" LegendMode="Gradient"
-                                        ColorMappingCollection="{StaticResource colorMapping}"
-                                        HorizontalAlignment="Center"
-                                        Width="800"/>
+                                     ColorMappingCollection="{StaticResource colorMapping}"
+                                     HorizontalAlignment="Center"
+                                     Width="800"/>
         </Grid>
     </Border>
 </Window>

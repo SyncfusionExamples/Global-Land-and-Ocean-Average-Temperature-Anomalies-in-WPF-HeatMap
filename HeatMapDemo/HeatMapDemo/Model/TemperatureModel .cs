@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HeatMapDemo
+﻿namespace HeatMapDemo
 {
     public class TemperatureModel 
     {
