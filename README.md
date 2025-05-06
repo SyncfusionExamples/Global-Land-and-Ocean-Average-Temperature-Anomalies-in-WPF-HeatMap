@@ -26,4 +26,4 @@ If you are facing a **Path too long** exception when building this project, foll
 2. Rename the repository to a shorter name.
 3. Reopen the project and build again.
 
-For a step-by-step guide, refer to [WPF Heat Map to Display Global Land and Ocean Temperature Anomalies (2004–2024)]()
+For a step-by-step guide, refer to [WPF Heat Map to Display Global Land and Ocean Temperature Anomalies (2004–2024)](https://www.syncfusion.com/blogs/post/wpf-heatmap-visualize-temp-anomalies)
